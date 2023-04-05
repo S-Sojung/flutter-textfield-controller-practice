@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:texteditcontroller_app/another_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,6 +33,12 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Test Application'),
+        leading: IconButton(icon: Icon(Icons.account_box), onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AnotherPage())
+          );
+        }),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -50,7 +57,7 @@ class _MainPageState extends State<MainPage> {
                     borderRadius: BorderRadius.circular(20)),
               ),
               onSubmitted: (value) {
-                a=value;
+                a = value;
               },
             ),
             TextField(
@@ -70,11 +77,10 @@ class _MainPageState extends State<MainPage> {
               ),
               onSubmitted: (value) {
                 print(value);
-                b=value;
+                b = value;
               },
             ),
             TextButton(onPressed: () {
-
               sum = int.parse(a) + int.parse(b);
               print(sum);
             }
